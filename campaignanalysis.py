@@ -50,6 +50,22 @@ def df_to_html(df, title):
     return f"<h2>{title}</h2>{df.to_html(index=False, border=1)}"
 
 
+# Homepage Route
+@app.get("/", response_class=HTMLResponse)
+def home():
+    return """
+    <html>
+    <head>
+        <title>Skin Clinic Campaign API</title>
+    </head>
+    <body>
+        <h1>Skin Clinic Campaign API is running</h1>
+        <p>Visit <a href='/campaign-analysis'>/campaign-analysis</a> to view the analysis.</p>
+    </body>
+    </html>
+    """
+
+
 @app.get("/campaign-analysis", response_class=HTMLResponse)
 def campaign_analysis():
 
